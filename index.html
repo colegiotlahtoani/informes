@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes | Colegio Tlahtoani</title>
+    <style>
+        :root {
+            --primary: #2563eb;  /* Azul más vibrante */
+            --secondary: #7c3aed; /* Violeta */
+            --accent: #22c55e;   /* Verde brillante */
+            --accent-dark: #16a34a;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            --whatsapp-bg: #dcf8c6;
+            --header-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            padding: 0;
+        }
+        
+        @supports (font-variation-settings: normal) {
+            body { font-family: 'Inter var', -apple-system, BlinkMacSystemFont, sans-serif; }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding: 2rem 1rem;
+            border-radius: 16px;
+            background: var(--header-gradient);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            height: 100px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 0.75rem;
+            text-align: center;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .btn-link {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-link i {
+            margin-right: 16px;
+            font-size: 1.75rem;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .btn-text {
+            flex: 1;
+        }
+        
+        .btn-title {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn-desc {
+            display: block;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        /* Sección de Contacto Mejorada */
+        .contact-section {
+            background-color: var(--whatsapp-bg);
+            border: 2px solid var(--accent);
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: var(--accent-dark);
+        }
+        
+        .contact-section h2::after {
+            background: var(--accent-dark);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 1.75rem 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: var(--accent-dark);
+            box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+            transform: translateY(-3px) scale(1.02);
+        }
+        
+        .whatsapp-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .whatsapp-icon {
+            font-size: 2.5rem;
+        }
+        
+        .whatsapp-text {
+            text-align: left;
+        }
+        
+        .whatsapp-text strong {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .whatsapp-text span {
+            font-weight: 400;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            
+            header {
+                padding: 1.5rem 1rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://colegiotlahtoani.com/wp-content/uploads/2022/02/cropped-LOGO-TLAHTOANI-1-192x192.png" 
+                 alt="Colegio Tlahtoani" class="logo">
+            <h1>Informes Escolares</h1>
+            <p class="subtitle">Acceso rápido a todos los recursos educativos del Colegio Tlahtoani</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Recursos Digitales</h2>
+                <div class="btn-grid">
+                    <a href="https://colegiotlahtoani.com/" class="btn-link" target="_blank">
+                        <i class="fas fa-globe"></i>
+                        <div class="btn-text">
+                            <span class="btn-title">Sitio Web Oficial</span>
+                            <span class="btn-desc">Portal principal con toda la información institucional</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://colegiotlahtoani.github.io/noticias/" class="btn-link" target="_blank">
+                        <i class="fas fa-newspaper"></i>
+                        <div class="btn-text">
+                            <span class="btn-title">Noticias y Avisos</span>
+                            <span class="btn-desc">Mantente actualizado con nuestras últimas noticias</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://colegiotlahtoani.github.io/galeria/" class="btn-link" target="_blank">
+                        <i class="fas fa-images"></i>
+                        <div class="btn-text">
+                            <span class="btn-title">Galería Multimedia</span>
+                            <span class="btn-desc">Fotos y videos de nuestros eventos y actividades</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://beacons.ai/colegiotlahtoanii" class="btn-link" target="_blank">
+                        <i class="fas fa-link"></i>
+                        <div class="btn-text">
+                            <span class="btn-title">Todos los Enlaces</span>
+                            <span class="btn-desc">Directorio completo de recursos digitales</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="card contact-section">
+                <h2>Contacto Directo</h2>
+                <a href="https://chatwith.io/es/s/63b7348567162" class="btn-link btn-whatsapp" target="_blank">
+                    <div class="whatsapp-content">
+                        <i class="fab fa-whatsapp whatsapp-icon"></i>
+                        <div class="whatsapp-text">
+                            <strong>Contactar por WhatsApp</strong>
+                            <span>Recibe respuesta inmediata durante horario escolar</span>
+                        </div>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2023 Colegio Tlahtoani · Todos los derechos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
