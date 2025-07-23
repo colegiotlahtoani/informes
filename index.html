@@ -6,7 +6,7 @@
     <title>Informes | Colegio Tlahtoani</title>
     <style>
         :root {
-            --primary: #2563eb;  /* Azul más vibrante */
+            --primary: #2563eb;  /* Azul vibrante */
             --secondary: #7c3aed; /* Violeta */
             --accent: #22c55e;   /* Verde brillante */
             --accent-dark: #16a34a;
@@ -41,28 +41,35 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 0 1.5rem 2rem;
         }
         
         header {
             text-align: center;
-            margin-bottom: 3.5rem;
-            padding: 2rem 1rem;
-            border-radius: 16px;
+            margin-bottom: 2rem;
+            padding: 3rem 1rem 2rem;
             background: var(--header-gradient);
             color: white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 16px 16px;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
         }
         
         .logo {
-            height: 100px;
-            margin-bottom: 1.5rem;
+            height: 120px;
+            width: 120px;
+            object-fit: contain;
             filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
             transition: transform 0.3s ease;
         }
         
         .logo:hover {
-            transform: scale(1.05) rotate(-5deg);
+            transform: scale(1.1) rotate(-5deg);
         }
         
         h1 {
@@ -242,12 +249,17 @@
         
         @media (max-width: 768px) {
             .container {
-                padding: 1.5rem 1rem;
+                padding: 0 1rem 1.5rem;
             }
             
             header {
-                padding: 1.5rem 1rem;
-                margin-bottom: 2.5rem;
+                padding: 2rem 1rem 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .logo {
+                height: 100px;
+                width: 100px;
             }
             
             h1 {
@@ -277,8 +289,11 @@
 <body>
     <div class="container">
         <header>
-            <img src="https://colegiotlahtoani.com/wp-content/uploads/2022/02/cropped-LOGO-TLAHTOANI-1-192x192.png" 
-                 alt="Colegio Tlahtoani" class="logo">
+            <div class="logo-container">
+                <img src="logo-colegio-tlahtoani.png" 
+                     alt="Logo del Colegio Tlahtoani" 
+                     class="logo">
+            </div>
             <h1>Informes Escolares</h1>
             <p class="subtitle">Acceso rápido a todos los recursos educativos del Colegio Tlahtoani</p>
         </header>
